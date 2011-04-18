@@ -1,3 +1,5 @@
+package ca.uqam.euler.nicolas.scala
+
 import scala.collection.immutable.SortedSet
 /**
  * Using names.txt  (right click and 'Save Link/Target As...'), 

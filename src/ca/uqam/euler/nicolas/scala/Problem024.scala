@@ -1,3 +1,5 @@
+package ca.uqam.euler.nicolas.scala
+
 /** 
  * A permutation is an ordered arrangement of objects. 
  * For example, 3124 is one possible permutation of the 

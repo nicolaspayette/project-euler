@@ -1,3 +1,5 @@
+package ca.uqam.euler.nicolas.scala
+
 object PathProblem {
 
   def nbPaths(size: Int) = {
