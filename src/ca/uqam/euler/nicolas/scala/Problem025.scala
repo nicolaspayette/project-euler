@@ -24,7 +24,7 @@ object Problem025 {
     fib.indexWhere(_.toString.length == n) + 1
 
   def main(args: Array[String]): Unit = {
-    util.timed {
+    tools.timed {
       println(findFirstWithNDigits(1000))
     }
   }

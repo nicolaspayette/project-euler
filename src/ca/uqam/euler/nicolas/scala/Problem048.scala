@@ -8,7 +8,7 @@ object Problem048 {
   }
 
   def main(args: Array[String]): Unit = {
-    util.timed {
+    tools.timed {
       println(lastNDigitsForMTerms(10, 1000))
     }
   }

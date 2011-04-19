@@ -23,13 +23,13 @@ object Problem031 {
         val newCandidates =
           for (c <- coins; s <- smallers)
             yield (c +: s).sorted
-        combinations(newCandidates, newFound, target)
+        combinations(newCandidates.toSet, newFound, target)
       }
     }
   }
 
   def main(args: Array[String]): Unit = tools.timed {
-    val xs = combinations(coins.map(List(_)), Set[List[Int]](), 15)
+    val xs = combinations(coins.map(List(_)).toSet, Set[List[Int]](), 15)
     println(xs.mkString("\n"))
     println(xs.size)
   }

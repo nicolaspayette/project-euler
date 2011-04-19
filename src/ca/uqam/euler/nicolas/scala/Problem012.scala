@@ -31,7 +31,7 @@ object Problem012 {
     triangleNumbers.find(factors(_).length > n).get
 
   def main(args: Array[String]): Unit = {
-    util.timed {
+    tools.timed {
       println(firstTriangleNumberWithMoreFactorsThan(500))
     }
   }
