@@ -1,4 +1,4 @@
-package ca.uqam.euler.nicolas.scala
+package ca.uqam.euler.nicolas.scalax
 
 /** 
  * A unit fraction contains 1 in the numerator. The decimal representation 

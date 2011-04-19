@@ -1,6 +1,6 @@
-package ca.uqam.euler.nicolas.scala
+package ca.uqam.euler.nicolas.scalax
 
-object PathProblem {
+object Problem015 {
 
   def nbPaths(size: Int) = {
 
@@ -23,7 +23,7 @@ object PathProblem {
   }
 
   def main(args: Array[String]): Unit = {
-	println(nbPaths(20))
+    println(nbPaths(20))
   }
 
 }

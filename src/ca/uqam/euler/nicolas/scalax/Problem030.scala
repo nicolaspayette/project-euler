@@ -1,4 +1,4 @@
-package ca.uqam.euler.nicolas.scala
+package ca.uqam.euler.nicolas.scalax
 
 import BigInt._
 object Problem030 {

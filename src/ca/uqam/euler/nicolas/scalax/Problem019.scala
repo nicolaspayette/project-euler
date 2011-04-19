@@ -14,7 +14,7 @@
  *
  */
 
-package ca.uqam.euler.nicolas.scala
+package ca.uqam.euler.nicolas.scalax
 
 import java.util.GregorianCalendar
 import java.util.Calendar._

@@ -1,4 +1,4 @@
-package ca.uqam.euler.nicolas.scala
+package ca.uqam.euler.nicolas.scalax
 
 /**
  * A perfect number is a number for which the sum of its proper 

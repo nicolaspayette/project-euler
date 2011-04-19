@@ -1,4 +1,4 @@
-package ca.uqam.euler.nicolas.scala
+package ca.uqam.euler.nicolas.scalax
 
 /** If the numbers 1 to 5 are written out in words: 
  * one, two, three, four, five, 
