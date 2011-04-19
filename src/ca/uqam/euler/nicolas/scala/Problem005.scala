@@ -4,11 +4,11 @@ package ca.uqam.euler.nicolas.scala
 object Problem5 {
 
   def smallestEvDiv(n: Int) = {
-	  Iterator.from(1).find { i =>
-	 	  (1 to n).forall(i % _ == 0)
-	  }.get
+    Iterator.from(1).find { i =>
+      (1 to n).forall(i % _ == 0)
+    }.get
   }
-  
+
   def main(args: Array[String]): Unit = {
     println(smallestEvDiv(20))
   }

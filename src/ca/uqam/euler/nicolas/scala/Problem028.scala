@@ -1,21 +1,21 @@
 package ca.uqam.euler.nicolas.scala
 
 /**
- * Starting with the number 1 and moving to the right 
- * in a clockwise direction a 5 by 5 spiral is formed 
+ * Starting with the number 1 and moving to the right
+ * in a clockwise direction a 5 by 5 spiral is formed
  * as follows:
- * 
+ *
  * 21 22 23 24 25
  * 20  7  8  9 10
  * 19  6  1  2 11
  * 18  5  4  3 12
  * 17 16 15 14 13
- * 
- * It can be verified that the sum of the numbers on the 
- * diagonals is 101. What is the sum of the numbers on 
- * the diagonals in a 1001 by 1001 spiral formed in the 
+ *
+ * It can be verified that the sum of the numbers on the
+ * diagonals is 101. What is the sum of the numbers on
+ * the diagonals in a 1001 by 1001 spiral formed in the
  * same way?
- * 
+ *
  */
 object Problem028 {
 
@@ -60,11 +60,11 @@ object Problem028 {
 
   def diagSum(m: M) =
     (0 until m.size).map { x =>
-        m(x)(x) + m(x)(m.size - x - 1)
+      m(x)(x) + m(x)(m.size - x - 1)
     }.sum - 1
 
   def main(args: Array[String]): Unit = {
-    tools.timed { 
+    tools.timed {
       println(diagSum(makeSpiral(1001)))
     }
   }

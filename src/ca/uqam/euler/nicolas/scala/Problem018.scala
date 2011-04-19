@@ -60,6 +60,6 @@ object TriangleProblem {
     //val lines = str.lines.filter(_.nonEmpty)
     val lines = io.Source.fromFile("/home/nicolas/Desktop/triangle.txt").getLines()
     println(triangleSum(lines))
-    
+
   }
 }

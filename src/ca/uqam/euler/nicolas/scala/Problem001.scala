@@ -8,12 +8,11 @@ package ca.uqam.euler.nicolas.scala
  *
  */
 
-object Problem1 {
+object Problem001 {
 
   def sumOfMultiples(upperBound: Int, multipliers: Int*) = {
     def isMultiple(x: Int) = multipliers.exists(x % _ == 0.0)
-    (1 until upperBound)
-      .filter(isMultiple).sum
+    (1 until upperBound).filter(isMultiple).sum
   }
   def main(args: Array[String]) {
     println(sumOfMultiples(1000, 3, 5))

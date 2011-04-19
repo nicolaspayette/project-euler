@@ -1,22 +1,26 @@
 package ca.uqam.euler.nicolas.scala
 
-/** 
- * A unit fraction contains 1 in the numerator. The decimal representation 
- * of the unit fractions with denominators 2 to 10 are given:    
- * 
- * ^(1)/_(2)	= 	0.5    
- * ^(1)/_(3)	= 	0.(3)    
- * ^(1)/_(4)	= 	0.25    
- * ^(1)/_(5)	= 	0.2    
- * ^(1)/_(6)	= 	0.1(6)    
- * ^(1)/_(7)	= 	0.(142857)    
- * ^(1)/_(8)	= 	0.125    
- * ^(1)/_(9)	= 	0.(1)    
+import scala.annotation.tailrec
+import java.math.RoundingMode
+import java.math.{ BigDecimal => JBD }
+
+/**
+ * A unit fraction contains 1 in the numerator. The decimal representation
+ * of the unit fractions with denominators 2 to 10 are given:
+ *
+ * ^(1)/_(2)	= 	0.5
+ * ^(1)/_(3)	= 	0.(3)
+ * ^(1)/_(4)	= 	0.25
+ * ^(1)/_(5)	= 	0.2
+ * ^(1)/_(6)	= 	0.1(6)
+ * ^(1)/_(7)	= 	0.(142857)
+ * ^(1)/_(8)	= 	0.125
+ * ^(1)/_(9)	= 	0.(1)
  * ^(1)/_(10)	= 	0.1
- * 
- * Where 0.1(6) means 0.166666..., and has a 1-digit recurring cycle. 
+ *
+ * Where 0.1(6) means 0.166666..., and has a 1-digit recurring cycle.
  * It can be seen that ^(1)/_(7) has a 6-digit recurring cycle.
- * Find the value of d < 1000 for which ^(1)/_(d) contains the longest 
+ * Find the value of d < 1000 for which ^(1)/_(d) contains the longest
  * recurring cycle in its decimal fraction part.
  */
 object Problem026 {
@@ -45,7 +49,7 @@ object Problem026 {
         isRepeating(gs.tail)
 
     def hasSeqOf(d: BigDecimal, len: Int) = {
-      def f(ds: String): Boolean = 
+      def f(ds: String): Boolean =
         if (ds.isEmpty)
           false
         else if (isRepeating(ds.grouped(len).toSeq))
@@ -56,19 +60,19 @@ object Problem026 {
     }
 
     val xs = (1 to 10).map(BigDecimal(_)).filter(isInfinite)
-    
+
     println(xs.map(digits(_, 18)))
     println(xs.map(hasSeqOf(_, 6)))
-    
+
   }
 
 }
 
 object Problem026B {
-  
+
   // TODO: vérifier quelle version est la bonne
 
-	def nonTerminating(d: Int) =
+  def nonTerminating(d: Int) =
     try {
       new JBD(1) divide new JBD(d)
       false
@@ -86,7 +90,7 @@ object Problem026B {
     val digits = digitString(d, nbDigits)
     val minRepeats = 5
     val maxPrefixLenght = 10
-    val start = max(1, nbDigits - maxPrefixLenght)
+    val start = math.max(1, nbDigits - maxPrefixLenght)
     (start to nbDigits).find { size =>
       val seq = digits.takeRight(size)
       val nextDigits = digitString(d, nbDigits + size * minRepeats).drop(nbDigits)
@@ -94,12 +98,12 @@ object Problem026B {
       groups.forall(seq ==)
     }
   }
-  
+
   def main(args: Array[String]) {
     @tailrec
     def loop(candidates: Seq[Int], nbDigits: Int): (Int, Int) = {
-    	println(candidates)
-    	println(nbDigits)
+      println(candidates)
+      println(nbDigits)
       if (candidates.size == 1) {
         val d = candidates.head
         val hasSeq = findSeqIn(d, nbDigits)

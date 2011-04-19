@@ -105,10 +105,10 @@ object Problem013 {
 53503534226472524250874054075591789781264330331690
 """.trim.lines.map(BigInt(_)).toTraversable
 
-def firstNDigitsOfSum(n: Int, numbers: Traversable[BigInt]) = numbers.reduceLeft(_ + _).toString.take(n)   
-def main(args: Array[String]): Unit = {
+  def firstNDigitsOfSum(n: Int, numbers: Traversable[BigInt]) = numbers.reduceLeft(_ + _).toString.take(n)
+  def main(args: Array[String]): Unit = {
     val t1 = System.currentTimeMillis
-    
+
     println(firstNDigitsOfSum(10, ns))
 
     val t2 = System.currentTimeMillis

@@ -17,9 +17,9 @@ object Problem021 {
     }
     fs
   }
-  
+
   def properDivisorsF(n: Int) = {
-  	// much slower, hence not used
+    // much slower, hence not used
     val d = n.toDouble
     def f(toCheck: Seq[Int], found: Seq[Int]): Seq[Int] =
       if (toCheck.isEmpty) found
@@ -36,7 +36,7 @@ object Problem021 {
   }
 
   def amicables(under: Int) = {
-  	val r = (1 until under)
+    val r = (1 until under)
     val d = r.map(n => n -> properDivisors(n).sum).toMap
     def f(ns: Set[Int], found: Seq[Int]): Seq[Int] =
       if (ns.isEmpty)

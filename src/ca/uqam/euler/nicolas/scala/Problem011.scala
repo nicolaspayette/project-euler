@@ -13,11 +13,11 @@ object Problem011 {
   def greatestProduct(a: Array[Array[Int]], n: Int) = {
     def inArray(p: Pos) = p.x >= 0 && p.y >= 0 && p.x < a.length && p.y < a(0).length
     def from(p: Pos, d: Dir): Stream[Int] = {
-    	val next = d.next(p)
-    	if (inArray(next))
-    		Stream.cons(a(next.x)(next.y), from(next, d))
-    	else
-    		Stream.empty
+      val next = d.next(p)
+      if (inArray(next))
+        Stream.cons(a(next.x)(next.y), from(next, d))
+      else
+        Stream.empty
     }
     val streams = (0 until a.length).flatMap { x =>
       (0 until a(x).length).flatMap { y =>

@@ -26,7 +26,7 @@ object Problem012 {
     }
     fs
   }
-  
+
   def firstTriangleNumberWithMoreFactorsThan(n: Int) =
     triangleNumbers.find(factors(_).length > n).get
 

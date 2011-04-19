@@ -7,7 +7,7 @@ object Problem031 {
   def total(xs: Seq[Int]) = (xs zip coins).map(p => p._1 * p._2).sum
 
   def f(target: Int) = {
-    
+
   }
 
   def combinations(candidates: Set[List[Int]], found: Set[List[Int]], target: Int): Set[List[Int]] = {

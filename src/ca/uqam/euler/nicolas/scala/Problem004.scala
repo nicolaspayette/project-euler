@@ -18,7 +18,7 @@ object Problem4 {
   def largestForNbDigits(n: Int) = {
     r(n).flatMap(x =>
       r(n).takeWhile(_ <= x).
-      map(_ * x)).filter(isPalindrome).max
+        map(_ * x)).filter(isPalindrome).max
   }
 
   def main(args: Array[String]): Unit = {

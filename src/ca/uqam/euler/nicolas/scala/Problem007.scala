@@ -13,11 +13,11 @@ object Problem7 {
   }
 
   def nthPrime(n: Int) = {
-	// for some weird reason, primes.apply or primes.drop 
-	//  runs out of heap space, so we do it like this: 
-    def f(i: Int, stream: Stream[Int]): Int = {    	
-    	if (i == n) stream.head
-    	else f(i + 1, stream.tail)
+    // for some weird reason, primes.apply or primes.drop 
+    //  runs out of heap space, so we do it like this: 
+    def f(i: Int, stream: Stream[Int]): Int = {
+      if (i == n) stream.head
+      else f(i + 1, stream.tail)
     }
     f(1, primes)
   }

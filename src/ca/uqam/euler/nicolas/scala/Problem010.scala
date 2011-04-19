@@ -32,7 +32,6 @@ object Problem10 {
     f(0, 2, (3 to n).toList)
   }
 
-
   def main(args: Array[String]): Unit = {
     val t1 = System.currentTimeMillis
     println(sumOfprimesDownFrom(1000000))

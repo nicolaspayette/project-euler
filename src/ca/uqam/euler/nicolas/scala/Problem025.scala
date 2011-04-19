@@ -19,9 +19,9 @@ object Problem025 {
       next
     }
   }
-  
-  def findFirstWithNDigits(n: Int) = 
-  	fib.indexWhere(_.toString.length == n) + 1 
+
+  def findFirstWithNDigits(n: Int) =
+    fib.indexWhere(_.toString.length == n) + 1
 
   def main(args: Array[String]): Unit = {
     util.timed {

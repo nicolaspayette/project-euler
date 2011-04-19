@@ -31,8 +31,8 @@ object Problem8 {
     val products = groups.map(_.map(_.asDigit).product)
     products.max
   }
-    
+
   def main(args: Array[String]): Unit = {
-	  println(findGreatestProduct(5, s))
+    println(findGreatestProduct(5, s))
   }
 }
