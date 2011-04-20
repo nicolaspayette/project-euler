@@ -40,11 +40,10 @@ object Problem027 {
       .takeWhile(isPrime)
       .size
 
-  def main(args: Array[String]): Unit =
-    tools.timed {
-      val r = (-999 to 999)
-      val pairs = for (a <- r; b <- r) yield (a, b)
-      println(pairs.maxBy((nbConsecutivePrimes _).tupled))
-    }
+  def main(args: Array[String]) = Answer {
+    val r = (-999 to 999)
+    val pairs = for (a <- r; b <- r) yield (a, b)
+    pairs.maxBy((nbConsecutivePrimes _).tupled)
+  }
 
 }

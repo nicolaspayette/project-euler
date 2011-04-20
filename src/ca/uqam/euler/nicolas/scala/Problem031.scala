@@ -28,10 +28,10 @@ object Problem031 {
     }
   }
 
-  def main(args: Array[String]): Unit = tools.timed {
+  def main(args: Array[String]) = Answer {
     val xs = combinations(coins.map(List(_)).toSet, Set[List[Int]](), 15)
     println(xs.mkString("\n"))
-    println(xs.size)
+    xs.size
   }
 
 }

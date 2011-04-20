@@ -54,10 +54,8 @@ object Problem021 {
 
   def problem021(under: Int) = amicables(under).sum
 
-  def main(args: Array[String]): Unit = {
-    tools.timed {
-      println(problem021(10000))
-    }
+  def main(args: Array[String]) = Answer {
+    problem021(10000)
   }
 
 }

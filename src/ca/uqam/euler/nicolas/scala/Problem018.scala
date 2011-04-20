@@ -48,7 +48,7 @@ object Problem018 {
     f(ls.head, ls.tail)
   }
 
-  def main(args: Array[String]) = tools.timed {
-    println(triangleSum(str.lines.filter(_.nonEmpty)))
+  def main(args: Array[String]) = Answer {
+    triangleSum(str.lines.filter(_.nonEmpty))
   }
 }

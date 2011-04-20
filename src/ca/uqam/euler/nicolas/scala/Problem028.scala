@@ -54,7 +54,8 @@ object Problem028 {
         f(i + 1, p + dirs.head, dirs, updated(m, p, i))
     }
 
-    f(1, V(size / 2, size / 2), dirs, IndexedSeq.tabulate(size, size)((x, y) => 0))
+    f(1, V(size / 2, size / 2), dirs,
+      IndexedSeq.tabulate(size, size)((x, y) => 0))
 
   }
 
@@ -63,9 +64,7 @@ object Problem028 {
       m(x)(x) + m(x)(m.size - x - 1)
     }.sum - 1
 
-  def main(args: Array[String]): Unit = {
-    tools.timed {
-      println(diagSum(makeSpiral(1001)))
-    }
+  def main(args: Array[String]) = Answer {
+    diagSum(makeSpiral(1001))
   }
 }

@@ -23,10 +23,8 @@ object Problem025 {
   def findFirstWithNDigits(n: Int) =
     fib.indexWhere(_.toString.length == n) + 1
 
-  def main(args: Array[String]): Unit = {
-    tools.timed {
-      println(findFirstWithNDigits(1000))
-    }
+  def main(args: Array[String]) = Answer {
+    findFirstWithNDigits(1000)
   }
 
 }
