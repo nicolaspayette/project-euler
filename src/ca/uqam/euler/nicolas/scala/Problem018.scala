@@ -16,15 +16,8 @@ That is, 3 + 7 + 4 + 9 = 23.
 Find the maximum total from top to bottom of the triangle below:
  */
 
-object TriangleProblem {
+object Problem018 {
 
-  val str = """
-3
-7 4
-2 4 6
-8 5 9 3
-"""
-  /*
   val str = """
 75
 95 64
@@ -41,25 +34,21 @@ object TriangleProblem {
 91 71 52 38 17 14 91 43 58 50 27 29 48
 63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23"""
-*/
 
   def triangleSum(lines: Iterator[String]) = {
     def f(sums: IndexedSeq[Long], rest: Seq[IndexedSeq[Long]]): Long =
       if (sums.size == 1)
-        sums.first
+        sums.head
       else
         f(rest.head.indices.map { i =>
-          rest.head(i) + Math.max(sums(i), sums(i + 1))
+          rest.head(i) + math.max(sums(i), sums(i + 1))
         }, rest.tail)
 
     val ls = lines.map(_.split(" ").map(_.toLong).toIndexedSeq).toSeq.reverse
     f(ls.head, ls.tail)
   }
 
-  def main(args: Array[String]) {
-    //val lines = str.lines.filter(_.nonEmpty)
-    val lines = io.Source.fromFile("/home/nicolas/Desktop/triangle.txt").getLines()
-    println(triangleSum(lines))
-
+  def main(args: Array[String]) = tools.timed {
+    println(triangleSum(str.lines.filter(_.nonEmpty)))
   }
 }

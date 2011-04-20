@@ -25,53 +25,6 @@ import java.math.{ BigDecimal => JBD }
  */
 object Problem026 {
 
-  def isInfinite(bd: BigDecimal) =
-    try {
-      BigDecimal(1) / bd
-      false
-    } catch {
-      case _ => true
-    }
-
-  def digits(d: BigDecimal, nbDigits: Int) = {
-    val mc = new java.math.MathContext(nbDigits + 1)
-    (BigDecimal(1)(mc) / d).toString.split('.')(1).init
-  }
-
-  def main(args: Array[String]): Unit = {
-
-    def isRepeating(gs: Seq[String]): Boolean =
-      if (gs.size < 2)
-        false
-      else if (gs.head == gs.tail.head)
-        true
-      else
-        isRepeating(gs.tail)
-
-    def hasSeqOf(d: BigDecimal, len: Int) = {
-      def f(ds: String): Boolean =
-        if (ds.isEmpty)
-          false
-        else if (isRepeating(ds.grouped(len).toSeq))
-          true
-        else
-          f(ds.tail)
-      f(digits(d, len * 3))
-    }
-
-    val xs = (1 to 10).map(BigDecimal(_)).filter(isInfinite)
-
-    println(xs.map(digits(_, 18)))
-    println(xs.map(hasSeqOf(_, 6)))
-
-  }
-
-}
-
-object Problem026B {
-
-  // TODO: vérifier quelle version est la bonne
-
   def nonTerminating(d: Int) =
     try {
       new JBD(1) divide new JBD(d)
