@@ -1,35 +1,37 @@
 package ca.uqam.euler.nicolas.scala
 
+import scala.collection.immutable.SortedMap
+
 object Problem031 {
 
-  val coins = List(200, 100, 50, 20, 10, 5, 2, 1)
-
-  def total(xs: Seq[Int]) = (xs zip coins).map(p => p._1 * p._2).sum
-
-  def f(target: Int) = {
-
+  object CoinMap {
+    val coins = List(200, 100, 50, 20, 10, 5, 2, 1)
+    val empty = CoinMap(coins.map(_ -> 0).toMap)
+  }
+  case class CoinMap(m: Map[Int, Int]) {
+    val sum = m.map(e => e._1 * e._2).sum
+    def add(coin: Int) = CoinMap(m.updated(coin, m(coin) + 1))
   }
 
-  def combinations(candidates: Set[List[Int]], found: Set[List[Int]], target: Int): Set[List[Int]] = {
-    if (candidates.isEmpty)
-      found
+  import CoinMap._
+
+  def combinations(
+    candidates: Set[CoinMap],
+    found: Set[CoinMap],
+    target: Int): Set[CoinMap] = {
+    val newFound = found ++ candidates.filter(_.sum == target)
+    val smallers = candidates.filter(_.sum < target)
+    if (smallers.isEmpty)
+      newFound
     else {
-      val toKeep = candidates.view.filter(_.sum <= target)
-      val (equals, smallers) = toKeep.partition(_.sum == target)
-      val newFound = found ++ equals
-      if (smallers.isEmpty)
-        newFound
-      else {
-        val newCandidates =
-          for (c <- coins; s <- smallers)
-            yield (c +: s).sorted
-        combinations(newCandidates.toSet, newFound, target)
-      }
+      val newCandidates = for (s <- smallers; c <- coins) yield s.add(c)
+      combinations(newCandidates, newFound, target)
     }
   }
-
   def main(args: Array[String]) = Answer {
-    val xs = combinations(coins.map(List(_)).toSet, Set[List[Int]](), 15)
+    // Answer : 73682
+    // Note: not very efficient -- there should be a better, simpler way - see forum 
+    val xs = combinations(Set(empty), Set[CoinMap](), 200)
     println(xs.mkString("\n"))
     xs.size
   }
