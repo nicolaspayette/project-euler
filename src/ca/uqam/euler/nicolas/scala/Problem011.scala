@@ -1,6 +1,6 @@
 package ca.uqam.euler.nicolas.scala
 
-/** What is the greatest product of four adjacent numbers in any direction (up, down, left, right, or diagonally) in the 20�20 grid? */
+/** What is the greatest product of four adjacent numbers in any direction (up, down, left, right, or diagonally) in the 20�20 grid? */
 // Answer: 70600674
 object Problem011 {
 
@@ -42,9 +42,9 @@ object Problem011 {
       else
         Stream.empty
     }
-    val streams = (0 until a.length).flatMap { x =>
-      (0 until a(x).length).flatMap { y =>
-        directions.map { d =>
+    val streams = (0 until a.length).flatMap { x ⇒
+      (0 until a(x).length).flatMap { y ⇒
+        directions.map { d ⇒
           from(Pos(x, y), d)
         }
       }

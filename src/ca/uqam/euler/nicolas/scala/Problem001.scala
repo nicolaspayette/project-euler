@@ -14,8 +14,8 @@ object Problem001 {
     def isMultiple(x: Int) = multipliers.exists(x % _ == 0.0)
     (1 until upperBound).filter(isMultiple).sum
   }
-  def main(args: Array[String]) {
-    println(sumOfMultiples(1000, 3, 5))
+  def main(args: Array[String]) = Answer {
+    sumOfMultiples(1000, 3, 5)
   }
 
 }

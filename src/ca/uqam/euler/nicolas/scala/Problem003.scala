@@ -6,14 +6,14 @@ object Problem3 {
 
   def primes = {
     def primesFrom(lastPrime: Int, knownPrimes: Seq[Int]): Stream[Int] = {
-      val nextPrime = Stream.from(lastPrime + 1).find(n => !knownPrimes.exists(n % _ == 0)).get
+      val nextPrime = Stream.from(lastPrime + 1).find(n ⇒ !knownPrimes.exists(n % _ == 0)).get
       Stream.cons(lastPrime, primesFrom(nextPrime, knownPrimes :+ lastPrime))
     }
     primesFrom(2, List())
   }
 
   def largestPrimeFactor(n: Long) = {
-    (math.sqrt(n).toLong to 2 by -1).find(m => n % m == 0 && isPrime(m))
+    (math.sqrt(n).toLong to 2 by -1).find(m ⇒ n % m == 0 && isPrime(m))
   }
 
   def longs = Iterator.iterate(1L)(_ + 1)
@@ -23,10 +23,9 @@ object Problem3 {
   def isPrime(n: Long) = n > 1 && candidateFactors(n).size == 0
 
   def primeFactors(n: Long) = candidateFactors(n).filter(isPrime)
-  //def largestPrimeFactor(n: Long) = primeFactors(n).toStream.last
 
-  def main(args: Array[String]): Unit = {
-    println(largestPrimeFactor(600851475143L))
+  def main(args: Array[String]): Unit = Answer {
+    largestPrimeFactor(600851475143L)
   }
 
 }

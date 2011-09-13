@@ -9,18 +9,16 @@ package ca.uqam.euler.nicolas.scala
  *
  */
 object Problem2 {
-  def fib = {
-    def fib(x: Int, y: Int): Stream[Int] = {
-      val n = x + y
-      Stream.cons(n, fib(y, n))
-    }
-    fib(0, 1)
+  import Stream._
+  def fibs = {
+    def f(a: Int, b: Int): Stream[Int] = a #:: f(b, a + b)
+    f(0, 1)
   }
   def fibonaSum(upperBound: Int) = {
-    val evenFib = fib.filter(_ % 2 == 0)
+    val evenFib = fibs.filter(_ % 2 == 0)
     evenFib.takeWhile(_ <= upperBound).sum
   }
-  def main(args: Array[String]) {
-    println(fibonaSum(4000000))
+  def main(args: Array[String]) = Answer {
+    fibonaSum(4000000)
   }
 }
