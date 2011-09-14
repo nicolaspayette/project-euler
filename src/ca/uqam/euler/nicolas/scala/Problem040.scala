@@ -14,6 +14,16 @@ package ca.uqam.euler.nicolas.scala
  */
 object Problem040 {
 
-  def main(args: Array[String]): Unit = Answer {}
+  // note: make the stream 0-based cause the d formula is 1-based
+  def digits(n: Int = 0, s: String = ""): Stream[Int] =
+    s match {
+      case "" ⇒ digits(n + 1, n.toString)
+      case _  ⇒ s.head.asDigit #:: digits(n, s.tail)
+    }
+
+  def main(args: Array[String]): Unit = Answer {
+    val d = digits()
+    d(1) * d(10) * d(100) * d(1000) * d(10000) * d(100000) * d(1000000)
+  }
 
 }
