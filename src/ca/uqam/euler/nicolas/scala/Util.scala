@@ -27,4 +27,11 @@ object Util {
     else ld(n) == n
   }
 
+  def nbDigits(n: Int) =
+    (floor(log10(abs(n))) + 1).toInt
+    
+  def digits(n: Int) =
+    for (i ← nbDigits(n) - 1 to 0 by -1)
+      yield (n / pow(10, i).toInt) % 10
+
 }
