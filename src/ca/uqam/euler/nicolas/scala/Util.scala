@@ -1,6 +1,7 @@
 package ca.uqam.euler.nicolas.scala
 import scala.annotation.tailrec
 import math._
+import Stream._
 
 object Util {
 
@@ -33,6 +34,8 @@ object Util {
     }
     ldFrom(one + one, n)
   }
+
+  def primes = from(2) filter isPrime
 
   def isPrime[@specialized(Int) N](n: N)(implicit num: Integral[N]) = {
     import num._
