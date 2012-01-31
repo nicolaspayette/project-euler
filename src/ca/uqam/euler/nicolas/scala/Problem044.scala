@@ -13,20 +13,8 @@ Find the pair of pentagonal numbers, Pj and Pk, for which their sum and differen
  */
 object Problem044 {
 
-  def memoize[A, B](f: (A) ⇒ B) = {
-    var cache = Map[A, B]()
-    (x: A) ⇒
-      if (cache contains x)
-        cache(x)
-      else {
-        val res = f(x)
-        cache += (x -> res)
-        res
-      }
-  }
-
   val pents = Stream.from(0).map(n ⇒ (n * (3 * n - 1)) / 2)
-  val isPent = memoize { n: Int ⇒
+  val isPent = Util.memoize { n: Int ⇒
     pents.find(_ >= n).exists(_ == n)
   }
 
@@ -34,8 +22,8 @@ object Problem044 {
     // works, but not sure the algorithm is ok
     // because the diffs in my seq don't grow linearly
     (for {
-      pk <- pents.drop(1)
-      pj <- pents.drop(1).takeWhile(_ < pk).reverse
+      pk ← pents.drop(1)
+      pj ← pents.drop(1).takeWhile(_ < pk).reverse
       if isPent(pk - pj)
       if isPent(pk + pj)
     } yield (pk, pj, pk - pj)).head

@@ -1,15 +1,11 @@
 package ca.uqam.euler.nicolas.scala
 
+// Answer : 76576500
 object Problem012 {
-
-  def naturals = {
-    def from(n: Int): Stream[Int] = n #:: from(n + 1)
-    from(1)
-  }
 
   def triangleNumbers = {
     def from(n: Int): Stream[Int] =
-      naturals.take(n).sum #:: from(n + 1)
+      (1 to n).sum #:: from(n + 1)
     from(1)
   }
 
