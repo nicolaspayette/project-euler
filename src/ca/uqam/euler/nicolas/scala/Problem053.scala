@@ -19,7 +19,7 @@ import scala.collection.immutable.NumericRange
  */
 // Answer : 4075
 object Problem053 {
-  def fact(n: Int) = (1 to n).map(BigInt.apply).product
+  def fact(n: BigInt) = (BigInt(1) to n).product
   def main(args: Array[String]): Unit = Answer {
     (for {
       n ← 23 to 100

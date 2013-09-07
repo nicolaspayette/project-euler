@@ -46,6 +46,9 @@ object Util {
   def nbDigits(n: Int) =
     (floor(log10(abs(n))) + 1).toInt
 
+  def nbDigits(n: BigInt) =
+    Iterator.iterate(n)(_ / 10).takeWhile(_ > 0).size
+
   def digits(n: Int) =
     for (i ← nbDigits(n) - 1 to 0 by -1)
       yield (n / pow(10, i).toInt) % 10
