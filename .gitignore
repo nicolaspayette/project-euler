@@ -1,0 +1,7 @@
+bin/
+
+# eclipse files:
+.classpath
+.project
+.scala_dependencies
+.settings
