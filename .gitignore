@@ -6,3 +6,4 @@ target/
 .project
 .scala_dependencies
 .settings
+/bin
